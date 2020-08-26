@@ -1,6 +1,5 @@
 console.log("Loading index.js");
-const globalCountOfDominosTotal = 400;
-let globalDelayValue = 20;
+const globalCountOfDominosTotal = 351;
 
 for (var dominoCreationCounter = 1; dominoCreationCounter <= globalCountOfDominosTotal; dominoCreationCounter++) {
     var thisDomino = document.createElement("img");
@@ -10,10 +9,8 @@ for (var dominoCreationCounter = 1; dominoCreationCounter <= globalCountOfDomino
 }
 $('#allDominosDiv img').addClass('eachDominosClass');
 
-let chain = Promise.resolve();
-
+let globalDelayValue = 20;
 function Wait() {
-    // globalDelayValue += 0.1;
     console.log("this delay="+globalDelayValue);
     return new Promise(r => setTimeout(r, globalDelayValue))
 }
@@ -28,6 +25,7 @@ function getProm() {
     })
 }
 
+let chain = Promise.resolve();
 $( "img" ).click(function() {
     let thisId = $(this).attr('id');
     let dominoNumber = thisId.match(/(\d+)/)[0];
